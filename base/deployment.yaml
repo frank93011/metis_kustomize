@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metis
+  labels:
+    app: metis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: metis
+  template:
+    metadata:
+      labels:
+        app: metis
+    spec:
+      containers:
+      - name: metis-container
+        image: frank93011/metis:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
