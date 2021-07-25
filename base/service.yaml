@@ -9,6 +9,5 @@ spec:
   - name: http
     port: 80
     targetPort: 3000
-    nodePort: 5000
   selector:
     app: metis
