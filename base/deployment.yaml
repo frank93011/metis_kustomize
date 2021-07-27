@@ -17,6 +17,7 @@ spec:
       containers:
       - name: backend-container
         image: frank93011/metis:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
         env:
@@ -42,6 +43,7 @@ spec:
       containers:
       - name: frontend-container
         image: frank93011/metis-frontend:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
         env:
