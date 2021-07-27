@@ -2,12 +2,27 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: metis
-  name: metis
+    app: backend
+  name: backend
 spec:
   ports:
   - name: http
     port: 80
+    targetPort: 5000
+  selector:
+    app: backend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: frontend
+  name: frontend
+spec:
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 80
     targetPort: 3000
   selector:
-    app: metis
+    app: frontend

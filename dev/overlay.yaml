@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-      - name: metis-container
+      - name: backend-container
         resources:
           requests:
             memory: "100Mi"

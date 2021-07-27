@@ -1,22 +1,47 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: metis
+  name: backend
   labels:
-    app: metis
+    app: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: metis
+      app: backend
   template:
     metadata:
       labels:
-        app: metis
+        app: backend
     spec:
       containers:
-      - name: metis-container
+      - name: backend-container
         image: frank93011/metis:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: PORT
+          value: "5000"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend-container
+        image: frank93011/metis-frontend:latest
         ports:
         - containerPort: 3000
         env:
